@@ -45,6 +45,7 @@
   * @param String  options[cancel]    cancel button value, empty means no button **
   * @param String  options[cssclass]  CSS class to apply to input form. 'inherit' to copy from parent. **
   * @param String  options[style]     Style to apply to input form 'inherit' to copy from parent. **
+  * @param String  options[maxlength] Maxlength value for text input or textarea **
   * @param String  options[select]    true or false, when true text is highlighted ??
   * @param String  options[placeholder] Placeholder text or html to insert when element is empty. **
   * @param String  options[onblur]    'cancel', 'submit', 'ignore' or function ??
@@ -457,6 +458,9 @@
                     /* https://bugzilla.mozilla.org/show_bug.cgi?id=236791 */
                     //input[0].setAttribute('autocomplete','off');
                     input.attr('autocomplete','off');
+                    if(settings.maxlength) {
+                      input.attr('maxlength', setting.maxlength);
+                    }
                     $(this).append(input);
                     return(input);
                 }
@@ -473,6 +477,9 @@
                         textarea.attr('cols', settings.cols);
                     } else if (settings.width != "none") {
                         textarea.width(settings.width);
+                    }
+                    if (settings.maxlength) {
+                      textarea.attr('maxlength', settings.maxlength);
                     }
                     $(this).append(textarea);
                     return(textarea);
