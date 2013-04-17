@@ -459,7 +459,7 @@
                     //input[0].setAttribute('autocomplete','off');
                     input.attr('autocomplete','off');
                     if(settings.maxlength) {
-                      input.attr('maxlength', setting.maxlength);
+                      input.attr('maxlength', settings.maxlength);
                     }
                     $(this).append(input);
                     return(input);
